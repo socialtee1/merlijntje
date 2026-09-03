@@ -27,15 +27,21 @@
     --font-body:'Inter', sans-serif;
   }
   *,*::before,*::after{box-sizing:border-box;}
-  html,body{height:100%;}
+  html,body{
+    height:100%;
+    max-width:100%;
+    overflow-x:hidden;
+    overscroll-behavior-x:none;
+  }
   body{
     margin:0;
     font-family:var(--font-body);
     background:#0b0b0d;
     color:#fff;
     -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
     -webkit-tap-highlight-color:transparent;
+    width:100%;
+    position:relative;
   }
   .wrap{
     position:relative;
@@ -204,27 +210,31 @@
     .center-mark{display:none;}
     .panel{
       min-height:0;
+      justify-content:space-between;
       padding:22px 22px 24px;
+      gap:.75rem;
     }
     .panel-clean{
-      padding-top:calc(env(safe-area-inset-top, 0px) + 52px);
+      padding-top:calc(env(safe-area-inset-top, 0px) + 14px);
     }
     .panel-camper{
+      justify-content:flex-end;
       padding-bottom:calc(22px + env(safe-area-inset-bottom, 0px));
     }
-    .panel-logo{width:min(168px, 58vw); margin-bottom:.7rem;}
+    .panel-logo{width:min(132px, 46vw); margin-bottom:.55rem;}
     .tag{
-      top:calc(env(safe-area-inset-top, 0px) + 14px);
-      left:22px;
+      position:static;
+      align-self:flex-start;
+      flex-shrink:0;
       font-size:.68rem;
       letter-spacing:.06em;
       padding:.4rem .8rem;
     }
-    h1{font-size:clamp(1.7rem, 7.2vw, 2.15rem); line-height:1.1;}
+    h1{font-size:clamp(1.55rem, 6.4vw, 2rem); line-height:1.1;}
     .panel p{
-      font-size:.92rem;
-      line-height:1.45;
-      margin-top:.7rem;
+      font-size:.88rem;
+      line-height:1.4;
+      margin-top:.55rem;
       max-width:none;
     }
     .cta, .soon-badge{
