@@ -10,7 +10,7 @@
   gtag('config', 'G-94P9JT0J0L');
 </script>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Merlijntje &amp; Merli — Kies je richting</title>
 <meta name="description" content="Merlijntje: schoonmaakbedrijf in Bredene voor stoomreiniging, gevelreiniging en professionele schoonmaak. Merli: camperverhuur, binnenkort online." />
 <meta name="robots" content="index, follow" />
@@ -35,14 +35,21 @@
     color:#fff;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
+    -webkit-tap-highlight-color:transparent;
   }
   .wrap{
     min-height:100vh;
+    min-height:100svh;
     display:grid;
     grid-template-columns:1fr 1fr;
   }
   @media (max-width:860px){
-    .wrap{grid-template-columns:1fr; grid-template-rows:1fr 1fr;}
+    html,body{height:auto;}
+    .wrap{
+      grid-template-columns:1fr;
+      grid-template-rows:none;
+      min-height:100svh;
+    }
   }
   .panel{
     position:relative;
@@ -183,15 +190,33 @@
   .center-mark span{
     font-family:var(--font-display); font-weight:800; font-size:.85rem; color:var(--ink);
   }
-  @media (max-width:860px){ .center-mark{display:none;} }
-
-  /* Simple camper silhouette, drawn in CSS/SVG, no external assets */
-  .camper-svg{
-    position:absolute; z-index:1; right:6%; bottom:8%;
-    width:min(46%, 380px);
-    opacity:.9;
+  @media (max-width:860px){
+    .center-mark{display:none;}
+    .panel{
+      min-height:min(78svh, 720px);
+      padding:1.4rem 1.2rem calc(1.5rem + env(safe-area-inset-bottom));
+    }
+    .panel-logo{width:min(190px, 68vw); margin-bottom:1rem;}
+    .tag{
+      top:max(1rem, env(safe-area-inset-top));
+      left:1rem;
+      font-size:.72rem;
+      padding:.45rem .9rem;
+    }
+    h1{font-size:clamp(1.85rem, 8.8vw, 2.55rem); line-height:1.08;}
+    .panel p{font-size:1rem; max-width:none;}
+    .cta, .soon-badge{
+      width:100%;
+      justify-content:center;
+      text-align:center;
+      flex-wrap:wrap;
+      margin-top:1.25rem;
+    }
+    .soon-badge{font-size:.72rem; letter-spacing:.04em; line-height:1.35;}
+    .camper-svg{right:4%; bottom:6%; width:52%; opacity:.55;}
+    .panel:hover::before{transform:none;}
+    .panel:active::before{transform:scale(1.03);}
   }
-  @media (max-width:860px){ .camper-svg{right:4%; bottom:6%; width:56%;} }
 
   @media (prefers-reduced-motion: reduce){
     .soon-badge .dot{animation:none;}
