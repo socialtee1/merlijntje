@@ -38,17 +38,27 @@
     -webkit-tap-highlight-color:transparent;
   }
   .wrap{
+    position:relative;
     min-height:100vh;
     min-height:100svh;
     display:grid;
     grid-template-columns:1fr 1fr;
   }
   @media (max-width:860px){
-    html,body{height:auto;}
+    html,body{
+      height:100%;
+      height:100dvh;
+      overflow:hidden;
+      overscroll-behavior:none;
+    }
     .wrap{
       grid-template-columns:1fr;
-      grid-template-rows:none;
+      grid-template-rows:1fr 1fr;
       min-height:100svh;
+      min-height:100dvh;
+      height:100svh;
+      height:100dvh;
+      overflow:hidden;
     }
   }
   .panel{
@@ -193,26 +203,40 @@
   @media (max-width:860px){
     .center-mark{display:none;}
     .panel{
-      min-height:min(78svh, 720px);
-      padding:1.4rem 1.2rem calc(1.5rem + env(safe-area-inset-bottom));
+      min-height:0;
+      padding:22px 22px 24px;
     }
-    .panel-logo{width:min(190px, 68vw); margin-bottom:1rem;}
+    .panel-clean{
+      padding-top:calc(env(safe-area-inset-top, 0px) + 52px);
+    }
+    .panel-camper{
+      padding-bottom:calc(22px + env(safe-area-inset-bottom, 0px));
+    }
+    .panel-logo{width:min(168px, 58vw); margin-bottom:.7rem;}
     .tag{
-      top:max(1rem, env(safe-area-inset-top));
-      left:1rem;
-      font-size:.72rem;
-      padding:.45rem .9rem;
+      top:calc(env(safe-area-inset-top, 0px) + 14px);
+      left:22px;
+      font-size:.68rem;
+      letter-spacing:.06em;
+      padding:.4rem .8rem;
     }
-    h1{font-size:clamp(1.85rem, 8.8vw, 2.55rem); line-height:1.08;}
-    .panel p{font-size:1rem; max-width:none;}
+    h1{font-size:clamp(1.7rem, 7.2vw, 2.15rem); line-height:1.1;}
+    .panel p{
+      font-size:.92rem;
+      line-height:1.45;
+      margin-top:.7rem;
+      max-width:none;
+    }
     .cta, .soon-badge{
       width:100%;
       justify-content:center;
       text-align:center;
       flex-wrap:wrap;
-      margin-top:1.25rem;
+      margin-top:1rem;
+      box-sizing:border-box;
     }
-    .soon-badge{font-size:.72rem; letter-spacing:.04em; line-height:1.35;}
+    .cta{padding:.85rem 1.1rem; font-size:.9rem;}
+    .soon-badge{font-size:.68rem; letter-spacing:.03em; line-height:1.35; padding:.75rem 1rem;}
     .camper-svg{right:4%; bottom:6%; width:52%; opacity:.55;}
     .panel:hover::before{transform:none;}
     .panel:active::before{transform:scale(1.03);}
@@ -244,7 +268,7 @@
       <span class="eyebrow">Merli</span>
       <h1>Camperverhuur,<br/>onderweg.</h1>
       <p>Merli brengt binnenkort camperverhuur naar de kust &mdash; vrijheid op vier wielen, geregeld door hetzelfde team als Merlijntje.</p>
-      <span class="soon-badge"><span class="dot"></span>Under construction &mdash; to be continued</span>
+      <span class="soon-badge"><span class="dot"></span>Binnenkort online</span>
     </div>
   </a>
 

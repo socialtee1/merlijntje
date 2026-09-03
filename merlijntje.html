@@ -378,11 +378,11 @@ button{font-family:inherit; cursor:pointer; border:none; background:none;}
   50%{transform:translateY(5px);}
 }
 @media (max-width: 760px){
-  .hero-overlay{padding:calc(5.4rem + env(safe-area-inset-top)) 1.25rem calc(1.6rem + env(safe-area-inset-bottom));}
-  .hero{min-height:100svh;}
-  .hero-top h1{font-size:clamp(2.05rem, 10.5vw, 3.1rem); line-height:1.08;}
-  .hero-top p{font-size:1.02rem; margin-top:1rem;}
-  .hero-ctas{margin-top:1.5rem; flex-direction:column;}
+  .hero-overlay{padding:calc(env(safe-area-inset-top, 0px) + 4.6rem) var(--pad) calc(1.25rem + env(safe-area-inset-bottom, 0px));}
+  .hero{min-height:100svh; min-height:100dvh;}
+  .hero-top h1{font-size:clamp(2rem, 9vw, 2.6rem); line-height:1.08;}
+  .hero-top p{font-size:1rem; margin-top:.9rem; max-width:none;}
+  .hero-ctas{margin-top:1.25rem; flex-direction:column; gap:.7rem;}
   .hero-ctas .btn{width:100%; justify-content:center; white-space:normal; text-align:center;}
 }
 
@@ -624,7 +624,7 @@ button{font-family:inherit; cursor:pointer; border:none; background:none;}
 .glass-section .cta-row{margin-top:2.8rem;}
 @media (max-width: 760px){
   .glass-perks{grid-template-columns:1fr;}
-  .glass-section{margin:0 1rem; border-radius:20px;}
+  .glass-section{margin:0; border-radius:20px;}
 }
 
 /* ============================================================
@@ -1018,7 +1018,7 @@ footer{
    STICKY MOBILE CTA
    ============================================================ */
 .mobile-sticky-cta{
-  position:fixed; left:1rem; right:1rem; bottom:calc(1rem + env(safe-area-inset-bottom));
+  position:fixed; left:var(--pad); right:var(--pad); bottom:calc(14px + env(safe-area-inset-bottom, 0px));
   z-index:90;
   display:none;
 }
@@ -1027,8 +1027,8 @@ footer{
   .mobile-sticky-cta{display:block;}
   .nav-links, .nav-right .btn-primary{display:none;}
   .burger{display:block;}
-  body{padding-bottom:calc(5.4rem + env(safe-area-inset-bottom));}
-  footer{padding-bottom:1.4rem;}
+  body{padding-bottom:calc(5.6rem + env(safe-area-inset-bottom, 0px));}
+  footer{padding-bottom:1.2rem;}
 }
 
 body.menu-open{overflow:hidden;}
@@ -1266,25 +1266,39 @@ body.menu-open .mobile-sticky-cta{display:none;}
   .drone-media{order:-1;}
 }
 @media (max-width:560px){
-  .drone-section{margin:0 1rem; border-radius:20px;}
+  .drone-section{margin:0; border-radius:20px;}
   .drone-reel{width:30%; right:-.6rem; bottom:-1.2rem;}
 }
 
 @media (max-width: 760px){
-  .nav{padding: .85rem var(--pad); padding-top: max(.85rem, env(safe-area-inset-top));}
-  .nav.scrolled{padding:.7rem var(--pad); padding-top: max(.7rem, env(safe-area-inset-top));}
-  .section{padding:clamp(3.2rem,12vw,5.5rem) 0;}
+  :root{ --pad: 22px; }
+  .nav{
+    padding: 10px var(--pad);
+    padding-top: calc(env(safe-area-inset-top, 0px) + 8px);
+  }
+  .nav.scrolled{
+    padding: 8px var(--pad);
+    padding-top: calc(env(safe-area-inset-top, 0px) + 6px);
+  }
+  .section{padding:3.2rem 0;}
+  .overview-section{padding:2.6rem 0 1.8rem;}
   .btn{white-space:normal; text-align:center; justify-content:center;}
   .service-media{overflow:hidden;}
   .service-media .float-tag{left:.8rem; bottom:.8rem; right:auto;}
   .gevel-gallery figcaption, .gevel-gallery figure::after{opacity:1; transform:none;}
-  .cta-band{margin:0 1rem; border-radius:20px; padding:2.4rem 1.25rem;}
-  .cta-band .cta-row{flex-direction:column;}
+  .drone-section, .glass-section, .cta-band{
+    margin:0;
+    border-radius:18px;
+    padding:1.75rem 1.25rem;
+  }
+  .cta-band .cta-row{flex-direction:column; gap:.7rem;}
   .cta-band .btn{width:100%;}
   .drone-reel{display:none;}
-  .ba-slider{touch-action:none; aspect-ratio:3/4;}
-  .overview-item{padding:1.3rem 1.15rem;}
-  .footer-bottom{flex-direction:column; align-items:flex-start;}
+  .ba-slider{touch-action:none; aspect-ratio:4/5;}
+  .overview-item{padding:1.15rem 1rem;}
+  .form-wrap{padding:1.25rem 1.1rem; border-radius:16px;}
+  .footer-bottom{flex-direction:column; align-items:flex-start; gap:.75rem;}
+  .mobile-menu{padding:calc(env(safe-area-inset-top, 0px) + 4.6rem) var(--pad) calc(2rem + env(safe-area-inset-bottom, 0px));}
 }
 
 @media (hover: none){
